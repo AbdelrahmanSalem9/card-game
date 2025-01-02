@@ -1,0 +1,108 @@
+html {
+  width: 100%;
+  height: 100%;
+  --size: 100px;
+  --yellow: #edae49;
+  --dark-blue: #003d5b;
+  --teal: #039486;
+  background-color: var(--teal);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.bg-pattern {
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+      transparent 43%,
+      var(--dark-blue) 44%,
+      var(--dark-blue) 50%,
+      transparent 51%,
+      transparent 75%,
+      var(--yellow) 76%,
+      var(--yellow) 82%,
+      var(--dark-blue) 83%
+    ),
+    radial-gradient(
+      transparent 43%,
+      var(--dark-blue) 44%,
+      var(--dark-blue) 50%,
+      var(--teal) 51%,
+      var(--teal) 67%,
+      transparent 68%,
+      transparent 75%,
+      var(--yellow) 76%,
+      var(--yellow) 82%,
+      var(--teal) 83%
+    );
+  background-size: var(--size) var(--size);
+  background-position: 0 0, calc(var(--size) / 2) calc(var(--size) / 2);
+}
+
+main {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.sticky-menu {
+  width: 80%;
+  height: 10%;
+  background-color: #e5e5e5;
+  border-radius: 0 0 12px 12px;
+  z-index: 20;
+}
+
+.container {
+  margin: auto auto;
+  width: 60%;
+  height: 70%;
+  background-color: #e5e5e5;
+  border-radius: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.card {
+  background: linear-gradient(135deg, var(--dark-blue), #005f7a);
+  width: calc(90% / 4);
+  height: calc(90% / 3);
+  border: 2px solid var(--yellow);
+  transform-style: preserve-3d;
+  transition: transform 0.4s ease-in-out;
+}
+
+.card.flipped {
+  transform: rotateY(180deg); /* Flip card */
+}
+
+.card:hover {
+  background: #005f7a;
+}
+
+.card.flipped {
+  background: linear-gradient(45deg, #edae49, #039486);
+}
+
+.card.flipped.solved {
+  background: #039486;
+  pointer-events: none;
+}
