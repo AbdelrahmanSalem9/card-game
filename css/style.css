@@ -68,7 +68,7 @@ main {
   z-index: 20;
 }
 
-.container {
+.card-container {
   margin: auto auto;
   width: 60%;
   height: 70%;
@@ -84,7 +84,6 @@ main {
 .card {
   background: linear-gradient(135deg, var(--dark-blue), #005f7a);
   width: calc(90% / 4);
-  height: calc(90% / 3);
   border: 2px solid var(--yellow);
   transform-style: preserve-3d;
   transition: transform 0.4s ease-in-out;
