@@ -1,7 +1,9 @@
-let flippedCards = [];
-let solvedCards = [];
+import { updateScore } from "./gameController.js";
+import { shuffle, generateRandomValues } from "./utils.js";
 
-export function handleCardClick(card) {
+let flippedCards = [];
+
+function handleCardClick(card) {
   if (card.classList.contains("flipped")) {
     unflipCard(card);
   } else {
@@ -35,7 +37,8 @@ function checkMatch() {
 function handleMatch(firstCard, secondCard) {
   firstCard.classList.add("solved");
   secondCard.classList.add("solved");
-  solvedCards.push(firstCard, secondCard);
+  window.sharedState.solvedCards.push(firstCard, secondCard);
+  updateScore();
 }
 
 function handleNoMatch(firstCard, secondCard) {
@@ -43,4 +46,20 @@ function handleNoMatch(firstCard, secondCard) {
     firstCard.classList.remove("flipped");
     secondCard.classList.remove("flipped");
   }, 500);
+}
+
+export function generateCards(cardCount) {
+  return generateRandomValues(cardCount).map((value) =>
+    createCardElement(value, cardCount)
+  );
+}
+
+function createCardElement(value, cardCount) {
+  const card = document.createElement("span");
+  card.classList.add("card");
+  card.textContent = value;
+  card.style.height = `calc(90% / ${cardCount / 4} )`;
+  card.dataset.value = value;
+  card.addEventListener("click", () => handleCardClick(card));
+  return card;
 }
