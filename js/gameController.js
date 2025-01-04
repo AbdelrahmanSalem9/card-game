@@ -31,3 +31,14 @@ export function resetBoard() {
     card.classList.remove("flipped", "solved");
   });
 }
+
+function clearBoard() {
+  const cardContainer = document.querySelector(".card-container");
+  cardContainer.innerHTML = "";
+}
+
+export function changeDifficulty(settings) {
+  clearBoard();
+  resetGame();
+  startGame(settings);
+}
