@@ -1,5 +1,11 @@
 import { GAME_SETTINGS } from "./gameSettings.js";
-import { startGame, resetGame, resetBoard, changeDifficulty} from "./gameController.js";
+import {
+  startGame,
+  resetGame,
+  resetBoard,
+  changeDifficulty,
+  showCongratsMessage,
+} from "./gameController.js";
 
 window.sharedState = window.sharedState || {};
 
@@ -17,3 +23,13 @@ difficultyBtns.forEach((btn) => {
 });
 
 startGame(GAME_SETTINGS.easy);
+
+document.addEventListener("allCardsSolved", () => {
+  showCongratsMessage();
+
+  const playAgainBtn = document.getElementById("playAgain");
+  playAgainBtn.addEventListener("click", () => {
+    congratsBox.classList.remove("show");
+    changeDifficulty(GAME_SETTINGS.easy);
+  });
+});

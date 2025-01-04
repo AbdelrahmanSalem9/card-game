@@ -39,6 +39,10 @@ function handleMatch(firstCard, secondCard) {
   secondCard.classList.add("solved");
   window.sharedState.solvedCards.push(firstCard, secondCard);
   updateScore();
+  if (window.sharedState.solvedCards.length === window.sharedState.cardCount) {
+    const event = new CustomEvent("allCardsSolved");
+    document.dispatchEvent(event);
+  }
 }
 
 function handleNoMatch(firstCard, secondCard) {
