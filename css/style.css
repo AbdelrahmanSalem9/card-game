@@ -10,6 +10,8 @@ main {
 .sticky-menu {
   width: 80%;
   height: 10%;
+  min-height: 60px;
+  max-width: 400px;
   background-color: var(--light-gray);
   border-radius: 0 0 12px 12px;
   z-index: 20;
@@ -17,6 +19,8 @@ main {
   flex-wrap: wrap;
   justify-content: flex-start;
   align-items: center;
+  align-content: space-around;
+  padding: 1%;
 }
 
 .difficulty-btn,
@@ -30,7 +34,7 @@ main {
   border-radius: 10px;
   color: var(--light-gray);
   cursor: pointer;
-  margin: 10px 10px 0 10px;
+  margin: 1% 2%;
 }
 
 .restart-btn {
@@ -51,20 +55,18 @@ main {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   position: relative;
   overflow: hidden;
-  margin: 2%;
 }
 
 .score {
-  height: auto;
+  height: 100%;
   order: 4;
   background-color: #f2c94c;
   text-align: center;
-  border-radius: 20px;
   color: var(--light-gray);
   transition: width 0.3s ease;
   flex-grow: 0;
   flex-shrink: 0;
-  padding: 10px;
+  padding: 2%;
 }
 
 #easy {
@@ -83,6 +85,7 @@ main {
   margin: auto auto;
   width: 80%;
   height: 70%;
+  max-width: 400px;
   background-color: var(--light-gray);
   border-radius: 5px;
   display: flex;
