@@ -1,19 +1,30 @@
 import { generateCards } from "./cardFunctions.js";
+import { getCardIcon } from "./icons.js";
 import { generateRandomValues } from "./utils.js";
 
 export function startGame(settings) {
   const { cardCount } = settings;
   window.sharedState.solvedCards = [];
   window.sharedState.cardCount = cardCount;
+  updateScore(0);
   const cardContainer = document.querySelector(".card-container");
   const cardElements = generateCards(cardCount);
   cardElements.forEach((element) => cardContainer.appendChild(element));
 }
 
 export function updateScore(newScore) {
-  const scoreLabel = document.querySelector(".score");
-  scoreLabel.textContent =
-    newScore || window.sharedState.solvedCards.length / 2;
+  const scoreBar = document.querySelector(".score");
+  scoreBar.textContent = `${
+    newScore || window.sharedState.solvedCards.length / 2
+  }/${window.sharedState.cardCount / 2}`;
+  updateProgressBar(scoreBar);
+}
+
+function updateProgressBar(scoreBar) {
+  const progress =
+    (window.sharedState.solvedCards.length / window.sharedState.cardCount) *
+    100;
+  scoreBar.style.width = `${progress}%`;
 }
 
 export function resetGame() {
@@ -24,10 +35,12 @@ export function resetGame() {
 export function resetBoard() {
   const cardElements = document.querySelectorAll(".card");
   const cardsNumber = generateRandomValues(cardElements.length);
-  cardElements.forEach((card, index) => {
-    card.textContent = cardsNumber[index];
-    card.dataset.value = cardsNumber[index];
+  cardElements.forEach((card) => {
+    const value = cardsNumber.pop();
     card.classList.remove("flipped", "solved");
+    card.childNodes[0].classList.remove("show-icon");
+    card.childNodes[0].textContent = getCardIcon(value);
+    card.dataset.value = value;
   });
 }
 

@@ -10,16 +10,80 @@ main {
 .sticky-menu {
   width: 80%;
   height: 10%;
-  background-color: #e5e5e5;
+  background-color: var(--light-gray);
   border-radius: 0 0 12px 12px;
   z-index: 20;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.difficulty-btn,
+.restart-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 15%;
+  height: 40%;
+  border: none;
+  border-radius: 10px;
+  color: var(--light-gray);
+  cursor: pointer;
+  margin: 10px 10px 0 10px;
+}
+
+.restart-btn {
+  justify-self: flex-end;
+  margin-left: auto;
+  background-color: #4f6d7a;
+}
+
+.progress-bar {
+  order: 2;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: 20px;
+  background-color: #4f6d7a;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+  margin: 2%;
+}
+
+.score {
+  height: auto;
+  order: 4;
+  background-color: #f2c94c;
+  text-align: center;
+  border-radius: 20px;
+  color: var(--light-gray);
+  transition: width 0.3s ease;
+  flex-grow: 0;
+  flex-shrink: 0;
+  padding: 10px;
+}
+
+#easy {
+  background-color: var(--teal);
+}
+
+#medium {
+  background-color: var(--yellow);
+}
+
+#hard {
+  background-color: var(--dark-blue);
 }
 
 .card-container {
   margin: auto auto;
-  width: 60%;
+  width: 80%;
   height: 70%;
-  background-color: #e5e5e5;
+  background-color: var(--light-gray);
   border-radius: 5px;
   display: flex;
   flex-wrap: wrap;
@@ -29,7 +93,7 @@ main {
 }
 
 .card {
-  background: linear-gradient(135deg, var(--dark-blue), #005f7a);
+  background: linear-gradient(135deg, var(--dark-blue), var(--blue-collar));
   width: calc(90% / 4);
   border: 2px solid var(--yellow);
   transform-style: preserve-3d;
@@ -37,25 +101,25 @@ main {
 }
 
 .card.flipped {
-  transform: rotateY(180deg); /* Flip card */
+  transform: rotateY(180deg);
 }
 
 .card:hover {
-  background: #005f7a;
+  background: var(--blue-collar);
 }
 
 .card.flipped {
-  background: linear-gradient(45deg, #edae49, #039486);
+  background: linear-gradient(45deg, var(--yellow), var(--teal));
 }
 
 .card.flipped.solved {
-  background: #039486;
+  background: var(--teal);
   opacity: 0.7;
   pointer-events: none;
 }
 
 .card-icon {
-  font-size: 3rem;
+  font-size: 2.5rem;
   display: flex;
   justify-content: center;
   align-items: center;

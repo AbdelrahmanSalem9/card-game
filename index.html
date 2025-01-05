@@ -11,7 +11,9 @@
   <body>
     <main>
       <div class="sticky-menu">
-        <span class="score">0</span>
+        <div class="progress-bar">
+          <span class="score"></span>
+        </div>
         <button id="easy" class="difficulty-btn">Easy</button>
         <button id="medium" class="difficulty-btn">Medium</button>
         <button id="hard" class="difficulty-btn">Hard</button>
@@ -28,20 +30,7 @@
       <div class="sparkle"></div>
       <h1>🎉 Congratulations! 🎉</h1>
       <p>You’ve matched all the cards!</p>
-      <button
-        id="playAgain"
-        style="
-          margin-top: 15px;
-          padding: 10px 20px;
-          background: #003d5b;
-          color: white;
-          border: none;
-          border-radius: 8px;
-          cursor: pointer;
-        "
-      >
-        Play Again
-      </button>
+      <button class="playagain-btn" id="playAgain">Play Again</button>
     </div>
   </body>
   <script type="module" src="./js/game.js"></script>

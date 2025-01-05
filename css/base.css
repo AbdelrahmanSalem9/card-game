@@ -4,7 +4,9 @@ html {
   --size: 100px;
   --yellow: #edae49;
   --dark-blue: #003d5b;
+  --blue-collar: #005f7a;
   --teal: #039486;
+  --light-gray: #e5e5e5;
   background-color: var(--teal);
 }
 

@@ -1,14 +1,14 @@
 export const GAME_SETTINGS = {
   easy: {
-    cardCount: 12,
+    cardCount: 16,
     unfipTime: 500,
   },
   medium: {
-    cardCount: 16,
+    cardCount: 20,
     unfipTime: 400,
   },
   hard: {
-    cardCount: 20,
+    cardCount: 24,
     unfipTime: 300,
   },
 };

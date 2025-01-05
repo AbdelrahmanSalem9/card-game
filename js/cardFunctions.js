@@ -1,5 +1,6 @@
 import { updateScore } from "./gameController.js";
 import { shuffle, generateRandomValues } from "./utils.js";
+import { getCardIcon } from "./icons.js";
 
 let flippedCards = [];
 
@@ -13,12 +14,14 @@ function handleCardClick(card) {
 
 function flipCard(card) {
   card.classList.add("flipped");
+  card.childNodes[0].classList.add("show-icon");
   flippedCards.push(card);
   checkMatch();
 }
 
 function unflipCard(card) {
   card.classList.remove("flipped");
+  card.childNodes[0].classList.remove("show-icon");
   flippedCards.pop();
 }
 
@@ -47,7 +50,9 @@ function handleMatch(firstCard, secondCard) {
 
 function handleNoMatch(firstCard, secondCard) {
   setTimeout(() => {
+    firstCard.childNodes[0].classList.remove("show-icon");
     firstCard.classList.remove("flipped");
+    secondCard.childNodes[0].classList.remove("show-icon");
     secondCard.classList.remove("flipped");
   }, 500);
 }
@@ -59,9 +64,12 @@ export function generateCards(cardCount) {
 }
 
 function createCardElement(value, cardCount) {
-  const card = document.createElement("span");
+  const card = document.createElement("div");
   card.classList.add("card");
-  card.textContent = value;
+  const icon = document.createElement("span");
+  icon.classList.add("card-icon");
+  icon.textContent = getCardIcon(value);
+  card.appendChild(icon);
   card.style.height = `calc(90% / ${cardCount / 4} )`;
   card.dataset.value = value;
   card.addEventListener("click", () => handleCardClick(card));
