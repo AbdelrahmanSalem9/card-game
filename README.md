@@ -28,22 +28,28 @@ A fun and interactive memory card game designed to test and improve your memory 
 ```plaintext
 📂 Memory-Card-Game
 ├── 📂 css
-│   └── style.css          # Game styling
+|   ├── base.js            # Base game coloring theme and background pattern
+|   ├── congrats.js        # wining message styling
+│   └── style.css          # Game elements styling
+├── 📂 images
+|   ├── favicon.png        # AI-Generated favicon
 ├── 📂 js
 │   ├── game.js            # User functionality interface
-│   ├── gameController.js  # Game logic functions
-|   ├── cardFunctions.js   # Card-related functions
+│   ├── game-controller.js # Game logic functions
+|   ├── game-state.js      # Shared state object
+|   ├── game-events.js     # Encapsulate all game events in one file
+|   ├── card-functions.js  # Card-related functions
 |   ├── utils.js           # helping functions
-|   ├── gameSettings.js    # Game pre-defined variables
+|   ├── game-settings.js   # Game pre-defined variables
 |   ├── icons.js           # Cards pre-defined icons
 ├── index.html             # Main HTML file
-├── README.md              # Project documentation
-└── favicon.png            # AI-Generated favicon
+└── README.md              # Project documentation
 ```
 
 ## Installation
 
 1. Clone the repository:
+
    ```bash
    git clone https://github.com/yourusername/memory-card-game.git
    ```
@@ -53,21 +59,14 @@ A fun and interactive memory card game designed to test and improve your memory 
 ## Customization
 
 - To customize the icons:
-  - Edit the `createCardElement` function in `cardFunctions.js` to use your desired icons.
-- Modify the color scheme in `style.css` to fit your preferences.
+  - Edit `icons.js` to add/remove icons as you desire.
+- To change styling theme
+  - Modify `base.css` to fit your preferences.
+- To change game setting (cards count or fliping time)
+  - Change `GAME_SETTINGS` variable in `game-settings.js` to match you gaming expericence.
 
-## Roadmap
+## Future Features
 
 - Add a timer to challenge players to complete the game within a specific time.
 - Implement a leaderboard to track high scores.
 - Add sound effects for card flips and matches.
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
-## Credits
-
-- Icons sourced from [FontAwesome](https://fontawesome.com/).
-- Background gradients inspired by [CSS Gradient](https://cssgradient.io/).
-- Developed with ❤️ by [Your Name].
