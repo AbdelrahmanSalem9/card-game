@@ -31,8 +31,6 @@ A fun and interactive memory card game designed to test and improve your memory 
 |   ├── base.js            # Base game coloring theme and background pattern
 |   ├── congrats.js        # wining message styling
 │   └── style.css          # Game elements styling
-├── 📂 images
-|   ├── favicon.png        # AI-Generated favicon
 ├── 📂 js
 │   ├── game.js            # User functionality interface
 │   ├── game-controller.js # Game logic functions
@@ -43,7 +41,8 @@ A fun and interactive memory card game designed to test and improve your memory 
 |   ├── game-settings.js   # Game pre-defined variables
 |   ├── icons.js           # Cards pre-defined icons
 ├── index.html             # Main HTML file
-└── README.md              # Project documentation
+├── README.md              # Project documentation
+└── favicon.ico            # AI-Generated favicon
 ```
 
 ## Installation
