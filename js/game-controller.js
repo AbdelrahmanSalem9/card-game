@@ -1,6 +1,8 @@
-import { generateCards } from "./cardFunctions.js";
+import { generateCards } from "./card-functions.js";
 import { getCardIcon } from "./icons.js";
 import { generateRandomValues } from "./utils.js";
+
+
 
 export function startGame(settings) {
   const { cardCount, unflipTime } = settings;

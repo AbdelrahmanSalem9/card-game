@@ -8,7 +8,7 @@ A fun and interactive memory card game designed to test and improve your memory 
 - **Responsive Design**: Optimized for both mobile and desktop devices.
 - **Interactive Animations**: Smooth card flip animations and a progress bar to track your progress.
 - **Game Completion Celebration**: A stylish and animated congratulatory message appears when you solve all the cards.
-- **Theme-Based Styling**: The game uses a clean and engaging theme with customized colors and a cohesive layout.
+- **Theme-Based Styling**: The game uses a clean and engaging theme with customized colors.
 
 ## Technologies Used
 
@@ -21,19 +21,24 @@ A fun and interactive memory card game designed to test and improve your memory 
 1. Choose a difficulty level from the top menu (Easy, Medium, or Hard).
 2. Click on the cards to flip them and reveal their icons.
 3. Match pairs of cards with the same icons.
-4. Complete the game to see a congratulatory message!
+4. Complete all pairs to win the game.
 
 ## Project Structure
 
 ```plaintext
 📂 Memory-Card-Game
 ├── 📂 css
-│   └── style.css        # Game styling
+│   └── style.css          # Game styling
 ├── 📂 js
-│   ├── game.js         # Main game logic
-│   ├── cardFunctions.js # Card-related functions
-├── index.html           # Main HTML file
-└── README.md            # Project documentation
+│   ├── game.js            # User functionality interface
+│   ├── gameController.js  # Game logic functions
+|   ├── cardFunctions.js   # Card-related functions
+|   ├── utils.js           # helping functions
+|   ├── gameSettings.js    # Game pre-defined variables
+|   ├── icons.js           # Cards pre-defined icons
+├── index.html             # Main HTML file
+├── README.md              # Project documentation
+└── favicon.png            # AI-Generated favicon
 ```
 
 ## Installation

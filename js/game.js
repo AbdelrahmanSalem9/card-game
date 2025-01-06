@@ -1,11 +1,11 @@
-import { GAME_SETTINGS } from "./gameSettings.js";
+import { GAME_SETTINGS } from "./game-settings.js";
 import {
   startGame,
   resetGame,
   resetBoard,
   changeDifficulty,
   showCongratsMessage,
-} from "./gameController.js";
+} from "./game-controller.js";
 
 window.sharedState = window.sharedState || {};
 

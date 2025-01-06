@@ -1,4 +1,4 @@
-import { updateScore } from "./gameController.js";
+import { updateScore } from "./game-controller.js";
 import { shuffle, generateRandomValues } from "./utils.js";
 import { getCardIcon } from "./icons.js";
 
