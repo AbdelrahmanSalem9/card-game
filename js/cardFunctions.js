@@ -54,7 +54,7 @@ function handleNoMatch(firstCard, secondCard) {
     firstCard.classList.remove("flipped");
     secondCard.childNodes[0].classList.remove("show-icon");
     secondCard.classList.remove("flipped");
-  }, 500);
+  }, window.sharedState.unflipTime);
 }
 
 export function generateCards(cardCount) {

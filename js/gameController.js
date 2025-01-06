@@ -3,9 +3,10 @@ import { getCardIcon } from "./icons.js";
 import { generateRandomValues } from "./utils.js";
 
 export function startGame(settings) {
-  const { cardCount } = settings;
+  const { cardCount, unflipTime } = settings;
   window.sharedState.solvedCards = [];
   window.sharedState.cardCount = cardCount;
+  window.sharedState.unflipTime = unflipTime;
   updateScore(0);
   const cardContainer = document.querySelector(".card-container");
   const cardElements = generateCards(cardCount);
