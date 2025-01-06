@@ -1,38 +1,16 @@
 import { generateCards } from "./card-functions.js";
 import { getCardIcon } from "./icons.js";
 import { generateRandomValues } from "./utils.js";
-
-
+import { gameState } from "./game-state.js";
 
 export function startGame(settings) {
   const { cardCount, unflipTime } = settings;
-  window.sharedState.cardCount = cardCount;
-  window.sharedState.unflipTime = unflipTime;
-  window.sharedState.solvedCards = [];
-  updateScore(0);
+  gameState.cardCount = cardCount;
+  gameState.unflipTime = unflipTime;
+  gameState.updateScore(0);
   const cardContainer = document.querySelector(".card-container");
-  const cardElements = generateCards(cardCount);
+  const cardElements = generateCards();
   cardElements.forEach((element) => cardContainer.appendChild(element));
-}
-
-export function updateScore(newScore) {
-  const scoreBar = document.querySelector(".score");
-  scoreBar.textContent = `${
-    newScore || window.sharedState.solvedCards.length / 2
-  }/${window.sharedState.cardCount / 2}`;
-  updateProgressBar(scoreBar);
-}
-
-function updateProgressBar(scoreBar) {
-  const progress =
-    (window.sharedState.solvedCards.length / window.sharedState.cardCount) *
-    100;
-  scoreBar.style.width = `${progress}%`;
-}
-
-export function resetGame() {
-  window.sharedState.solvedCards = [];
-  updateScore(0);
 }
 
 export function resetBoard() {
@@ -53,8 +31,8 @@ function clearBoard() {
 }
 
 export function changeDifficulty(settings) {
+  gameState.reset();
   clearBoard();
-  resetGame();
   startGame(settings);
 }
 

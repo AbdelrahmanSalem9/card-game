@@ -1,35 +1,11 @@
 import { GAME_SETTINGS } from "./game-settings.js";
-import {
-  startGame,
-  resetGame,
-  resetBoard,
-  changeDifficulty,
-  showCongratsMessage,
-} from "./game-controller.js";
+import { gameEvents } from "./game-events.js";
+import { startGame } from "./game-controller.js";
 
-window.sharedState = window.sharedState || {};
+const DEFAULT_SETTINGS = GAME_SETTINGS.medium;
 
-const resetBtn = document.querySelector(".restart-btn");
-resetBtn.addEventListener("click", () => {
-  resetBoard();
-  resetGame();
-});
+gameEvents.resetGameListener();
+gameEvents.changeDifficultyListener(GAME_SETTINGS);
+gameEvents.allCardsSolvedListener();
 
-const difficultyBtns = document.querySelectorAll(".difficulty-btn");
-difficultyBtns.forEach((btn) => {
-  btn.addEventListener("click", () => {
-    changeDifficulty(GAME_SETTINGS[btn.id]);
-  });
-});
-
-startGame(GAME_SETTINGS.easy);
-
-document.addEventListener("allCardsSolved", () => {
-  showCongratsMessage();
-
-  const playAgainBtn = document.getElementById("playAgain");
-  playAgainBtn.addEventListener("click", () => {
-    congratsBox.classList.remove("show");
-    changeDifficulty(GAME_SETTINGS.easy);
-  });
-});
+startGame(DEFAULT_SETTINGS);

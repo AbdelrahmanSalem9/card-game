@@ -1,6 +1,6 @@
-import { updateScore } from "./game-controller.js";
-import { shuffle, generateRandomValues } from "./utils.js";
+import { generateRandomValues } from "./utils.js";
 import { getCardIcon } from "./icons.js";
+import { gameState } from "./game-state.js";
 
 let flippedCards = [];
 
@@ -40,9 +40,10 @@ function checkMatch() {
 function handleMatch(firstCard, secondCard) {
   firstCard.classList.add("solved");
   secondCard.classList.add("solved");
-  window.sharedState.solvedCards.push(firstCard, secondCard);
-  updateScore();
-  if (window.sharedState.solvedCards.length === window.sharedState.cardCount) {
+  gameState.solvedCards.push(firstCard, secondCard);
+  gameState.updateScore();
+  console.log("handleMatch done!");
+  if (gameState.solvedCards.length === gameState.cardCount) {
     const event = new CustomEvent("allCardsSolved");
     document.dispatchEvent(event);
   }
@@ -54,18 +55,18 @@ function handleNoMatch(firstCard, secondCard) {
     firstCard.classList.remove("flipped");
     secondCard.childNodes[0].classList.remove("show-icon");
     secondCard.classList.remove("flipped");
-  }, window.sharedState.unflipTime);
+  }, gameState.unflipTime);
 }
 
 export function generateCards() {
-  const cardCount = window.sharedState.cardCount;
+  const cardCount = gameState.cardCount;
   return generateRandomValues(cardCount).map((value) =>
     createCardElement(value, cardCount)
   );
 }
 
 function createCardElement(value) {
-  const cardCount = window.sharedState.cardCount;
+  const cardCount = gameState.cardCount;
   const card = document.createElement("div");
   card.classList.add("card");
   const icon = document.createElement("span");
