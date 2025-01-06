@@ -57,13 +57,15 @@ function handleNoMatch(firstCard, secondCard) {
   }, window.sharedState.unflipTime);
 }
 
-export function generateCards(cardCount) {
+export function generateCards() {
+  const cardCount = window.sharedState.cardCount;
   return generateRandomValues(cardCount).map((value) =>
     createCardElement(value, cardCount)
   );
 }
 
-function createCardElement(value, cardCount) {
+function createCardElement(value) {
+  const cardCount = window.sharedState.cardCount;
   const card = document.createElement("div");
   card.classList.add("card");
   const icon = document.createElement("span");
