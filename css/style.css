@@ -35,6 +35,13 @@ main {
   color: var(--light-gray);
   cursor: pointer;
   margin: 1% 2%;
+  transition: all 0.2s ease;
+}
+
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  opacity: 0.9;
 }
 
 .restart-btn {
