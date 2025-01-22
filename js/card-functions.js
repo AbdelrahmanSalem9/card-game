@@ -1,4 +1,4 @@
-import { generateRandomValues } from "./utils.js";
+import { generateRandomValues, playFlipSound } from "./utils.js";
 import { getCardIcon } from "./icons.js";
 import { gameState } from "./game-state.js";
 
@@ -13,6 +13,7 @@ function handleCardClick(card) {
 }
 
 function flipCard(card) {
+  playFlipSound();
   card.classList.add("flipped");
   card.childNodes[0].classList.add("show-icon");
   flippedCards.push(card);
@@ -20,6 +21,7 @@ function flipCard(card) {
 }
 
 function unflipCard(card) {
+  playFlipSound();
   card.classList.remove("flipped");
   card.childNodes[0].classList.remove("show-icon");
   flippedCards.pop();
@@ -51,6 +53,7 @@ function handleMatch(firstCard, secondCard) {
 
 function handleNoMatch(firstCard, secondCard) {
   setTimeout(() => {
+    playFlipSound(2.5);
     firstCard.childNodes[0].classList.remove("show-icon");
     firstCard.classList.remove("flipped");
     secondCard.childNodes[0].classList.remove("show-icon");

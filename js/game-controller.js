@@ -1,6 +1,6 @@
 import { generateCards } from "./card-functions.js";
 import { getCardIcon } from "./icons.js";
-import { generateRandomValues } from "./utils.js";
+import { generateRandomValues, loadFlipSound } from "./utils.js";
 import { gameState } from "./game-state.js";
 
 export function startGame(settings) {
@@ -8,6 +8,7 @@ export function startGame(settings) {
   gameState.cardCount = cardCount;
   gameState.unflipTime = unflipTime;
   gameState.updateScore(0);
+  loadFlipSound();
   const cardContainer = document.querySelector(".card-container");
   const cardElements = generateCards();
   cardElements.forEach((element) => cardContainer.appendChild(element));
