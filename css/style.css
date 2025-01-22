@@ -67,7 +67,7 @@ button:hover {
 .score {
   height: 100%;
   order: 4;
-  background-color: #f2c94c;
+  background-color: var(--yellow);
   text-align: center;
   color: var(--light-gray);
   transition: width 0.3s ease;
