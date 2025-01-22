@@ -140,3 +140,20 @@ button:hover {
 .show-icon {
   visibility: visible;
 }
+
+.timer {
+  background-color: var(--light-gray);
+  color: var(--dark-blue);
+  padding: 12px 20px;
+  border-radius: 12px;
+  font-size: 28px;
+  width: 100px;
+  margin: 5px auto;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.timer p {
+  margin: 0;
+  font-weight: bold;
+}

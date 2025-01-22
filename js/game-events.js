@@ -43,4 +43,23 @@ export const gameEvents = {
     const progress = ((2 * gameState.score) / gameState.cardCount) * 100;
     scoreBar.style.width = `${progress}%`;
   },
+
+  startTimer: function () {
+    let timerDisplay = document.getElementById("timer-display");
+    let seconds = 0;
+    let minutes = 0;
+    return setInterval(function () {
+      seconds++;
+      if (seconds >= 60) {
+        seconds = 0;
+        minutes++;
+      }
+
+      let formattedTime =
+        (minutes < 10 ? "0" + minutes : minutes) +
+        ":" +
+        (seconds < 10 ? "0" + seconds : seconds);
+      timerDisplay.textContent = formattedTime;
+    }, 1000);
+  },
 };

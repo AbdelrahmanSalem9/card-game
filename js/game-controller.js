@@ -8,6 +8,7 @@ export function startGame(settings) {
   gameState.cardCount = cardCount;
   gameState.unflipTime = unflipTime;
   gameState.updateScore(0);
+  gameState.startTimer()
   loadFlipSound();
   const cardContainer = document.querySelector(".card-container");
   const cardElements = generateCards();
