@@ -1,4 +1,4 @@
-export const FLIPCARD_AUDIO_PATH = "/audio/flipcard.mp3";
+export const FLIPCARD_AUDIO_PATH = "audio/flipcard.mp3";
 let flipAudio = null;
 
 export function loadFlipSound() {
